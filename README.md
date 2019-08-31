@@ -1,14 +1,14 @@
 # react-wodry
-a plugin for a text flipping/rotating build in react function component
+Plugin for a text flipping/rotating build in react function component
 
 
-## react-wodry
+## about
 
-An React component implementation of the [**jquery wodry plugin**](https://github.com/daynin/wodry)
+Based (replicate) on the [**jquery wodry plugin**](https://github.com/daynin/wodry) to make easy the same implementation in react templates
 
 
-https://github.com/neuronas/react-wodry
-
+** refer to the original plugin demo page to know animation and params suported **
+[**http://daynin.github.io/wodry/#examples**](http://daynin.github.io/wodry/#examples)
 
 ## install
 
@@ -29,4 +29,8 @@ npm i react-wodry
       animationDuration={500}
     />
   </div>
-  ```sh
+  ```
+
+
+
+** Not sure but since I used react hooks, react 16.8 + may be required **
