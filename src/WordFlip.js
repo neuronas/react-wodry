@@ -2,37 +2,38 @@ import React, { useEffect, useState } from 'react'
 
 const WordFlip = (props) => {
 
+  const [currentPosition, setCurrentPosition] = useState(0)
+  const [runAnimation, setRunAnimation] = useState(false)
+
+  useEffect(() => {
+    setTimeout(() => {
+      flipNextText()
+    }, delay)
+  }, [currentPosition])
+
   let { content, animation, animationDuration, delay, shift } = props
   animationDuration = animationDuration ? animationDuration : 500
   delay = delay ? delay : 2000
   animation = animation ? animation : 'rotateX'
   shift = shift ? shift : {x:0, y:0, z:0}
 
-  const [currentPosition, setCurrentPosition] = useState(0)
-  const [runAnimation, setRunAnimation] = useState(false)
 
-  useEffect(() => {
-
-    const flipNextText = () => {
-      setRunAnimation(true)
-
-      setTimeout(() => {
-        setRunAnimation(false)
-      }, animationDuration)
-
-      if (currentPosition === content.length - 1) {
-        setCurrentPosition(0)
-      } else {
-        setCurrentPosition(currentPosition+1)
-      }
-    };
+  const flipNextText = () => {
+    console.log("aaaaa", animationDuration + delay)
+    setRunAnimation(true)
 
     setTimeout(() => {
-      flipNextText()
-    }, delay)
+      setRunAnimation(false)
+    }, animationDuration)
+    // }, (animation.slice(0,6) === 'rotate' && animation !== 'rotateAll') ? animationDuration : delay)
 
-  }, [currentPosition]) 
-
+    if (currentPosition === content.length - 1) {
+      setCurrentPosition(0)
+    } else {
+      setCurrentPosition(currentPosition+1)
+    }
+  };
+    
   const flipping = () => {
 
     let flippingStyle = {}, frontStyle = {} , backStyle = {}
@@ -46,7 +47,7 @@ const WordFlip = (props) => {
 
       frontStyle = {
         transform: `translate3d(${shift.x}px, ${shift.y}px, ${shift.x}px) ${animation === 'rotateAll' && runAnimation ? 'rotateX(180deg) rotateY(180deg)' : ''}`,
-        display: animation === 'rotateAll' ? 'none': '' 
+        display: animation === 'rotateAll' ? 'none': ''
       }
 
       backStyle = {
@@ -83,7 +84,7 @@ const WordFlip = (props) => {
     let backPosition = idx
     let frontPosition = idx === 0 ? length : idx - 1
 
-    if (!runAnimation && animation.slice(0,6) === 'rotate') {
+    if (!runAnimation && animation.slice(0,6) === 'rotate' && animation !== 'rotateAll') {
       backPosition = frontPosition
       frontPosition = idx
     }
