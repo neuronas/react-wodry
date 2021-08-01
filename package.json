@@ -1,6 +1,6 @@
 {
   "name": "react-wodry",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "a plugin for a text flipping/rotating build in react function component",
   "main": "index.js",
   "scripts": {
