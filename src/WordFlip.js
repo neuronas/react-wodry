@@ -2,6 +2,12 @@ import React, { useEffect, useState } from 'react'
 
 const WordFlip = (props) => {
 
+  let { content, animation, animationDuration, delay, shift } = props
+  animationDuration = animationDuration ? animationDuration : 500
+  delay = delay ? delay : 2000
+  animation = animation ? animation : 'rotateX'
+  shift = shift ? shift : {x:0, y:0, z:0}
+
   const [currentPosition, setCurrentPosition] = useState(0)
   const [runAnimation, setRunAnimation] = useState(false)
 
@@ -11,15 +17,8 @@ const WordFlip = (props) => {
     }, delay)
   }, [currentPosition])
 
-  let { content, animation, animationDuration, delay, shift } = props
-  animationDuration = animationDuration ? animationDuration : 500
-  delay = delay ? delay : 2000
-  animation = animation ? animation : 'rotateX'
-  shift = shift ? shift : {x:0, y:0, z:0}
-
-
   const flipNextText = () => {
-    console.log("aaaaa", animationDuration + delay)
+
     setRunAnimation(true)
 
     setTimeout(() => {

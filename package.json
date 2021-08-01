@@ -1,6 +1,6 @@
 {
   "name": "react-wodry",
-  "version": "1.0.3",
+  "version": "1.0.5",
   "description": "a plugin for a text flipping/rotating build in react function component",
   "main": "index.js",
   "scripts": {
@@ -29,11 +29,11 @@
     "react-dom": "^16.8.0"
   },
   "devDependencies": {
-    "@babel/cli": "^7.5.5",
-    "@babel/core": "^7.5.5",
-    "@babel/preset-env": "^7.5.5",
-    "@babel/preset-react": "^7.0.0",
-    "react": "^16.8.0",
-    "react-dom": "^16.8.0"
+    "@babel/cli": "^7.14.8",
+    "@babel/core": "^7.14.8",
+    "@babel/preset-env": "^7.14.9",
+    "@babel/preset-react": "^7.14.5",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0"
   }
 }
